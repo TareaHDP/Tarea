@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<extension
+    type="module"
+    version="3.0"
+    client="site"
+	method="upgrade">
+    <name>mod_tarea09</name>
+    <creationDate>07/06/2014</creationDate>
+    <author>Tarea09</author>
+    <version>1.0</version>
+    <description>Modulo para la tarea del grupo 09 de HDP115 CI-2014</description>
+    <files>
+        <filename module="mod_tarea09">mod_tarea09.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>helper1.php</filename>
+        <filename>helper2.php</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>mysql/uninstall.mysql.utf8.sql</filename>
+        <filename>mysql/install.mysql.utf8.sql</filename>
+        <filename>tmpl/index.html</filename>
+		<filename>mod_tarea09.xml</filename>
+    </files>
+	<install>
+		<sql><file driver="mysql" charset="utf8">mysql/install.mysql.utf8.sql</file></sql>
+	</install>
+ 
+	<uninstall>
+		 <sql><file driver="mysql" charset="utf8">mysql/uninstall.mysql.utf8.sql</file></sql>
+	</uninstall>
+    <config>
+        
+		<fields name="params">
+		
+			<fieldset name="basic">
+				<field name="textBV" type="textarea" label="Un mensaje de bienvenida" description="Un mensaje de bienvenida mostrado al principio del modulo" cols="30" rows="5"/>
+				<field name="textDesp" type="textarea" label="Un mensaje de despedida" description="Un mensaje de despedida mostrado al final del modulo" cols="30" rows="5"/>
+			</fieldset>
+		
+		
+            <fieldset
+                name="advanced">
+                <field
+                    name="layout"
+                    type="modulelayout"
+                    label="JFIELD_ALT_LAYOUT_LABEL"
+                    description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+                <field
+                    name="moduleclass_sfx"
+                    type="text"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+                <field
+                    name="owncache"
+                    type="list"
+                    default="1"
+                    label="COM_MODULES_FIELD_CACHING_LABEL"
+                    description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option
+                        value="1">JGLOBAL_USE_GLOBAL
+                    </option>
+                    <option
+                        value="0">COM_MODULES_FIELD_VALUE_NOCACHING
+                    </option>
+                </field>
+            </fieldset>                   
+        </fields>
+    </config>
+</extension>
+ 
